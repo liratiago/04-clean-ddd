@@ -1,0 +1,16 @@
+Entidades
+
+- Produto (id, tamanho, cor, qtdMinima, qtdMaxima )
+- Estoque (idProduto, quantidade)
+- Venda (id, idProduto, quantidade, data)
+- Compra (id, idProduto, quantidade, data )
+- Alerta (id, idProduto, data, quantidadeProduto)
+
+
+Casos de Uso
+
+- Rastrear Produto
+- Parametrizar Estoque
+- Alertar Produtos com Estoque Baixo
+- Ver alertas de Estoque
+- Criar ordem de Compra
