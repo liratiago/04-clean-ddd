@@ -1,10 +1,24 @@
 import { randomUUID } from "crypto"
-import { Entity } from "../../core/entities/entity"
+import { Entity } from "@/core/entities/entity"
+import { UniqueEntityID } from "@/core/entities/unique-id-entity"
 
 interface InstructorProps{
     name: string
 }
 
 export class Instructor  extends Entity<InstructorProps>{
-      
+
+    get name(){
+        return this.props.name
+    }
+
+    set name(name: string){
+        this.name = name 
+    }
+
+    static create(props: InstructorProps, id?:  UniqueEntityID){
+        const instructor = new Instructor(props, id)
+
+        return instructor
+    }
 }
