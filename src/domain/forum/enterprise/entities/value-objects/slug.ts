@@ -1,7 +1,7 @@
 export class Slug {
   public value: string
 
-  constructor(value: string) {
+  private constructor(value: string) {
     this.value = value
   }
 
@@ -22,5 +22,14 @@ export class Slug {
       .replace(/-$/g, '')
 
     return new Slug(slugText)
+  }
+
+  /**
+   * Recieves a string and normalize as slug
+   * Example: "An example title $" --> "an-example-title"
+   * @param text
+   */
+  static create(text: string) {
+    return new Slug(text)
   }
 }
