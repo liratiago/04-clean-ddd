@@ -1,9 +1,9 @@
 import { Slug } from './value-objects/slug'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { Optional } from '@/core/entities/types/optional'
-import dayjs from 'dayjs'
 import { AggregateRoot } from '@/core/entities/aggregate-root'
 import { QuestionAttachmentList } from './question-attachment-list'
+import dayjs from 'dayjs'
 
 export interface QuestionProps {
   authorId: UniqueEntityID
@@ -21,12 +21,12 @@ export class Question extends AggregateRoot<QuestionProps> {
     return this.props.authorId
   }
 
-  get bestAnswerId() {
-    return this.props.bestAnswerId
-  }
-
   get title() {
     return this.props.title
+  }
+
+  get bestAnswerId() {
+    return this.props.bestAnswerId
   }
 
   get content() {
@@ -84,6 +84,7 @@ export class Question extends AggregateRoot<QuestionProps> {
 
   set attachments(attachments: QuestionAttachmentList) {
     this.props.attachments = attachments
+    this.touch()
   }
 
   static create(
@@ -102,7 +103,4 @@ export class Question extends AggregateRoot<QuestionProps> {
 
     return question
   }
-}
-function dayjs() {
-  throw new Error('Function not implemented.')
 }
